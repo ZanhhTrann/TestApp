@@ -1,0 +1,850 @@
+﻿<Window x:Class="APP_DACS_QLKTX.Views.Menu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:APP_DACS_QLKTX.Views"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        mc:Ignorable="d"
+        Icon="D:\File\APP_DACS_QLKTX\APP_DACS_QLKTX\Images\Icon.png"
+        WindowState="Maximized"
+        Title="Menu" Height="650" Width="1800"
+        FontFamily="Poppins">
+    <Window.Resources>
+        <!-- CoLors-->
+        <SolidColorBrush x:Key="PrimaryBlueColor" Color="#348EF6"/>
+        <SolidColorBrush x:Key="SecundaryBlueCoLor" Color="#EFF2FF"/>
+
+        <SolidColorBrush x:Key="PrimaryTextColor" Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="SecundaryTextColor" Color="#BBC1D1"/>
+
+        <SolidColorBrush x:Key="PrimaryGrayColor" Color="#BBC1D1"/>
+        <!-- Start:Style-->
+
+        <!-- Start:TabItemStyle-->
+        <Style x:Key="TabItemStyle" TargetType="TabItem">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{DynamicResource SecundaryTextColor}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Margin" Value="0 0 10 0"/>
+            <Setter Property="Padding" Value="12 10 12 10"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabItem">
+                        <Grid SnapsToDevicePixels="True">
+                            <Border CornerRadius="5"
+                                    Background="{TemplateBinding Background}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    Margin="{TemplateBinding Margin}"/>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              SnapsToDevicePixels="True"
+                                              RecognizesAccessKey="True"
+                                              Margin="{TemplateBinding Padding}"
+                                              ContentSource="Header"
+                                              Focusable="False"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" 
+                                        Value="{DynamicResource SecundaryBlueCoLor}"/>
+                                <Setter Property="Foreground"
+                                        Value="{DynamicResource PrimaryGrayColor}"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" 
+                                        Value="{DynamicResource PrimaryBlueColor}"/>
+                                <Setter Property="Foreground"
+                                        Value="{DynamicResource PrimaryTextColor}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="TabItemStyle0" TargetType="TabItem">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{DynamicResource SecundaryTextColor}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Margin" Value="0 0 10 0"/>
+            <Setter Property="Padding" Value="12 10 12 10"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabItem">
+                        <Grid SnapsToDevicePixels="True">
+                            <Border CornerRadius="5"
+                                    Background="{TemplateBinding Background}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    Margin="{TemplateBinding Margin}"/>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              SnapsToDevicePixels="True"
+                                              RecognizesAccessKey="True"
+                                              Margin="{TemplateBinding Padding}"
+                                              ContentSource="Header"
+                                              Focusable="False"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" 
+                                        Value="#FFFAC5"/>
+                                <Setter Property="Foreground"
+                                        Value="{DynamicResource PrimaryGrayColor}"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" 
+                                        Value="Orange"/>
+                                <Setter Property="Foreground"
+                                        Value="Black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="TabItemStyle1" TargetType="TabItem">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{DynamicResource SecundaryTextColor}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Width" Value="110"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Margin" Value="0 0 0 10"/>
+            <Setter Property="Padding" Value="12 30 12 30"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabItem">
+                        <Grid SnapsToDevicePixels="True">
+                            <Border CornerRadius="5"
+                                    Background="{TemplateBinding Background}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    Margin="{TemplateBinding Margin}"/>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              SnapsToDevicePixels="True"
+                                              RecognizesAccessKey="True"
+                                              Margin="{TemplateBinding Margin}"
+                                              ContentSource="Header"
+                                              Focusable="False"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" 
+                                        Value="{DynamicResource SecundaryBlueCoLor}"/>
+                                <Setter Property="Foreground"
+                                        Value="{DynamicResource PrimaryGrayColor}"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" 
+                                        Value="{DynamicResource PrimaryBlueColor}"/>
+                                <Setter Property="Foreground"
+                                        Value="{DynamicResource PrimaryTextColor}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!-- End:Style-->
+
+
+        <!-- Start TabControlStyle-->
+        <Style x:Key="TabControlStyle" TargetType="TabControl">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{DynamicResource SecundaryTextColor}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Width" Value="1200"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+        </Style>
+        <!-- ENd TabControlStyle-->
+
+        <!-- End:Style-->
+    </Window.Resources>
+    <Grid >
+        <Border
+            CornerRadius="10"
+            Padding="30"
+            Background="{DynamicResource PrimaryTextColor}"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"/>
+        <TabControl Width="1320" Height="550" TabStripPlacement="Left">
+            <TabItem Width="120" x:Name="ct_ht" Style="{DynamicResource TabItemStyle}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                        <Image Width="25" Source="D:\File\APP_DACS_QLKTX\APP_DACS_QLKTX\Icons\System.png" />
+                        <TextBlock Text="Hệ thống" Height="18"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.Background>
+                        <ImageBrush ImageSource="D:\File\APP_DACS_QLKTX\APP_DACS_QLKTX\Images\SystemBG.png"/>
+                    </Grid.Background>
+                    <TextBlock x:Name="tbl_name" HorizontalAlignment="Left" Margin="517,350,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Text="Họ Tên"/>
+                    <Label Content="Họ Và Tên" HorizontalAlignment="Left" Margin="444,345,0,0" VerticalAlignment="Top"/>
+                    <Label Content="SDT" HorizontalAlignment="Left" Margin="444,375,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Ngày Sinh" HorizontalAlignment="Left" Margin="444,404,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Địa chỉ" HorizontalAlignment="Left" Margin="444,442,0,0" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="tbl_SDT" HorizontalAlignment="Left" Margin="517,380,0,0" TextWrapping="Wrap" Text="SDT" VerticalAlignment="Top" Foreground="White"/>
+                    <TextBlock x:Name="tbl_dob" HorizontalAlignment="Left" Margin="517,409,0,0" TextWrapping="Wrap" Text="Ngày sinh" VerticalAlignment="Top" Foreground="White"/>
+                    <TextBlock x:Name="tbl_dc" HorizontalAlignment="Left" Margin="517,447,0,0" TextWrapping="Wrap" Text="Địa chỉ" VerticalAlignment="Top" Foreground="White"/>
+                    <Button x:Name="bt_logout" Content="Đăng xuất" HorizontalAlignment="Left" Margin="445,488,0,0" VerticalAlignment="Top" Background="#FFFE5A5A" Width="89" BorderBrush="{x:Null}" Foreground="White" Click="bt_logout_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Width="120" Selector.IsSelected="True" x:Name="ct_tv" Style="{DynamicResource TabItemStyle}" >
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                        <Image Width="30" Source="D:\File\APP_DACS_QLKTX\APP_DACS_QLKTX\Icons\Search.png" />
+                        <TextBlock Text="Tìm kiếm" Height="18"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+
+                    <TabControl VerticalAlignment="Top" Height="500" Background="AliceBlue" Style="{DynamicResource TabControlStyle}">
+                        <TabItem x:Name="tv_sv" Style="{DynamicResource TabItemStyle1}">
+                            <TabItem.Header >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Image Width = "30" Source = "D:\File\DACS_APP_QLKTX\DACS_APP_QLKTX\Icon\student.png" />
+                                    <TextBlock Text="Sinh viên" Height="19" Margin="10,0,0,0"/>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid Margin="0,0,-2,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="44*"/>
+                                    <ColumnDefinition Width="139*"/>
+                                    <ColumnDefinition Width="807*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Truy xuất thông tin sinh viên" Grid.ColumnSpan="3"/>
+                                <TextBox x:Name="sv_search" Width="574" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="1,0,0,1" Margin="0,4,0,0" Grid.Column="2" TextChanged="sv_search_TextChanged"/>
+                                <Button x:Name="sv_reload" Content="Tải lại" Height="20" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,4,38,0" Grid.Column="2" Width="113" Background="#FF92A8ED" Foreground="White" Click="sv_reload_Click"/>
+                                <DataGrid x:Name="sv_data" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,28,0,124" Grid.ColumnSpan="3" SelectionChanged="sv_data_SelectionChanged"/>
+                                <CheckBox x:Name="sv_vpkl" Content="Vi phạm kỷ luật" Width="110" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,80" Grid.Column="1" Checked="sv_vpkl_Checked"/>
+                                <CheckBox x:Name="sv_hhhd" Content="Hết hạn hợp đồng" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="11,0,0,80" Grid.Column="2" Checked="sv_hhhd_Checked"/>
+                                <Button x:Name="sv_out" Content="Xuất file xcel" Margin="251,348,594,74" Width="123" Height="20" Grid.Column="2" Background="#FF83E893" Foreground="White" Click="sv_out_Click"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="tv_k" Style="{DynamicResource TabItemStyle1}" >
+                            <TabItem.Header >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Image Width = "25" Source = "D:\File\DACS_APP_QLKTX\DACS_APP_QLKTX\Icon\Faculty.png" />
+                                    <TextBlock Text="Khoa" Height="19" Margin="10,0,0,0"/>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid Margin="0,0,-2,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="43*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Truy xuất thông tin Khoa" Grid.ColumnSpan="2"/>
+                                <TextBox x:Name="k_search" Width="748" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="1,0,0,1" Margin="135,4,0,0" Grid.Column="1" TextChanged="k_search_TextChanged"/>
+                                <DataGrid x:Name="k_data" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,28,0,124" Grid.ColumnSpan="2" SelectionChanged="k_data_SelectionChanged"/>
+                                <Button x:Name="k_out" Margin="0,0,0,78" Width="123" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Column="1" Content="Xuất file xcel" Background="#FF83E893" BorderBrush="#FF707070" Foreground="White" Click="k_out_Click" />
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="tv_tktx" Style="{DynamicResource TabItemStyle1}">
+                            <TabItem.Header >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Image Width = "30" Source = "D:\File\DACS_APP_QLKTX\DACS_APP_QLKTX\Icon\building.png" />
+                                    <TextBlock Text="Tòa KTX" Height="19" Margin="10,0,0,0"/>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid Margin="0,0,-2,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="43*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Truy xuất thông tin tòa ký túc xá" Grid.ColumnSpan="2"/>
+
+                                <TextBox x:Name="tktx_search" Width="585" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="1,0,0,1" Margin="179,3,0,0" Grid.Column="1" TextChanged="tkxt_search_TextChanged"/>
+                                <DataGrid x:Name="tktx_data" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,28,0,124" Grid.ColumnSpan="2" SelectionChanged="tktx_data_SelectionChanged"/>
+                                <CheckBox x:Name="tktx_fixing" Content="Đang sửa chữa" Width="110" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="43,0,0,80" Grid.ColumnSpan="2" Checked="tktx_fixing_Checked"/>
+                                <Button x:Name="tktx_reload" Grid.Column="1" Content="Tải lại" HorizontalAlignment="Left" Margin="801,4,0,0" VerticalAlignment="Top"  Width="113" Background="#FF92A8ED" Foreground="White" Click="tktx_reload_Click"/>
+                                <Button x:Name="tktx_out" Margin="231,350,795,78" Width="123" Height="20" Content="Xuất file excel" Background="#FF83E893" Foreground="White" Grid.Column="1" Click="tktx_out_Click"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="tv_pktx" Style="{DynamicResource TabItemStyle1}">
+                            <TabItem.Header >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Image Width = "30" Source = "D:\File\DACS_APP_QLKTX\DACS_APP_QLKTX\Icon\room.png" />
+                                    <TextBlock Text="Phòng KTX" Height="19" Margin="10,0,0,0"/>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid Margin="0,0,-2,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="43*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Truy xuất thông tin phòng ký túc xá" Grid.ColumnSpan="2"/>
+                                <TextBox x:Name="pktx_search" Width="553" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="1,0,0,1" Margin="199,4,0,0" Grid.Column="1" TextChanged="pktx_search_TextChanged"/>
+                                <Button x:Name="pktx_reload" Content="Tải lại" Width="123" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Margin="784,4,0,0" Background="#FF92A8ED" Foreground="White" Click="pktx_reload_Click_1"/>
+                                <DataGrid x:Name="pktx_data" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,28,0,124" Grid.ColumnSpan="2" SelectionChanged="pktx_data_SelectionChanged"/>
+                                <RadioButton x:Name="pktx_tsv" GroupName="check_room" Content="Phòng còn thiếu sinh viên" Width="167" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="43,0,0,80" Grid.ColumnSpan="2" Checked="pktx_tsv_Checked"/>
+                                <RadioButton x:Name="pktx_pt" GroupName="check_room" Content="Phòng còn trống (chưa có sinh viên ở)" HorizontalAlignment="Left" Margin="237,354,0,80" Grid.Column="1" Checked="pktx_pt_Checked"/>
+                                <Button x:Name="pktx_out" Margin="846,0,180,78" Content="Xuất file xcel" Background="#FF83E893" Foreground="White" Width="123" Height="20" VerticalAlignment="Bottom" Grid.Column="1" Click="pktx_out_Click"/>
+                                <CheckBox x:Name="pktx_fixing" Margin="611,350,338,80" Grid.Column="1" Content="Có đồ đạ bị hư hỏng" Width="200" Checked="pktx_fixing_Checked" />
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="tv_hopd" Style="{DynamicResource TabItemStyle1}">
+                            <TabItem.Header >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Image Width = "30" Source = "D:\File\DACS_APP_QLKTX\DACS_APP_QLKTX\Icon\contract.png" />
+                                    <TextBlock Text="Hợp đồng" Height="19" Margin="10,0,0,0"/>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid Margin="0,0,-2,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="43*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Truy xuất thông tin hợp đồng" Grid.ColumnSpan="2"/>
+                                <TextBox x:Name="hopd_search" Width="630" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="1,0,0,1" Margin="135,4,0,0" Grid.Column="1" TextChanged="hopd_search_TextChanged"/>
+                                <DataGrid x:Name="hopd_data" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,28,0,124" Grid.ColumnSpan="2" SelectionChanged="hopd_data_SelectionChanged"/>
+                                <CheckBox x:Name="hopd_hhhd" Content="Hết hạn hợp đồng" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="43,0,0,80" Grid.ColumnSpan="2" Checked="hopd_hhhd_Checked"/>
+                                <Button x:Name="hopd_reload" Grid.Column="1" Content="Tải lại" HorizontalAlignment="Left" Margin="798,4,0,0" VerticalAlignment="Top" Foreground="White"  Width="113" Background="#FF92A8ED" Height="20" Click="hopd_reload_Click"/>
+                                <Button x:Name="hopd_out" Margin="167,0,656,78" Content="Xuất file xcel" Width="123" Height="20" VerticalAlignment="Bottom" Grid.Column="1" Background="#FF83E893" Foreground="White" Click="hopd_out_Click"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="tv_hoad" Style="{DynamicResource TabItemStyle1}">
+                            <TabItem.Header >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Image Width = "30" Source = "D:\File\DACS_APP_QLKTX\DACS_APP_QLKTX\Icon\bills.png" />
+                                    <TextBlock Text="Hóa đơn" Height="18" Margin="10,0,0,0"/>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid Margin="0,0,-2,0">
+
+                                <Label Content="Truy xuất thông tin hóa đơn" Grid.ColumnSpan="2"/>
+                                <TextBox x:Name="hoad_search" Width="636" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="1,0,0,1" Margin="174,4,0,0" TextChanged="hoad_search_TextChanged"/>
+                                <Button x:Name="hoad_reload" Content="Tải lại"  Width="113" Background="#FF92A8ED" Height="20" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,4,28,0" Foreground="White" Click="hoad_reload_Click"/>
+                                <DataGrid x:Name="hoad_data" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,28,0,124" SelectionChanged="hoad_data_SelectionChanged"/>
+
+                                <RadioButton x:Name="hoad_ctt" GroupName="check_bills" Content="Chưa thanh toán" Width="110" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="43,0,0,80" Checked="hoad_ctt_Checked"/>
+                                <RadioButton x:Name="hoad_dtt" GroupName="check_bills" Content="Đã thanh toán" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="180,0,0,80" Checked="hoad_dtt_Checked"/>
+                                <Button x:Name="hoad_out" Width="123" Height="20" Margin="319,0,548,78" VerticalAlignment="Bottom" Content="Xuất file excel" Foreground="White" Background="#FF83E893" Click="hoad_out_Click"/>
+                                <Button x:Name="hoad_in" Width="123" Height="20" Margin="601,350,478,0" VerticalAlignment="Top" Content="In hóa đơn" Foreground="White" Background="#FF83E893" Click="hoad_in_Click"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="tv_csvc" Style="{DynamicResource TabItemStyle1}">
+                            <TabItem.Header >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Image Width = "20" Source = "D:\File\DACS_APP_QLKTX\DACS_APP_QLKTX\Icon\homeitem.png" />
+                                    <TextBlock Text="CSVC" Height="19" Margin="10,0,0,0"/>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid Margin="0,0,-2,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="43*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Truy xuất thông tin cơ sở vậy chất" Grid.ColumnSpan="2"/>
+                                <TextBox x:Name="csvc_search" Width="748" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="1,0,0,1" Margin="144,4,0,0" Grid.Column="1" TextChanged="csvc_search_TextChanged"/>
+                                <DataGrid x:Name="csvc_data" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,28,0,124" Grid.ColumnSpan="2" SelectionChanged="csvc_data_SelectionChanged"/>
+                                <Button x:Name="csvc_out" Margin="0,0,823,78" Width="123" Height="20" Background="#FF83E893" Content="Xuất file xcel" Foreground="White" VerticalAlignment="Bottom" Grid.Column="1" Click="csvc_out_Click"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="tv_dgdv" Style="{DynamicResource TabItemStyle1}">
+                            <TabItem.Header >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Image Width = "30" Source = "D:\File\DACS_APP_QLKTX\DACS_APP_QLKTX\Icon\price.png" />
+                                    <TextBlock Text="DGDV" Height="19" Margin="10,0,0,0"/>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid Margin="0,0,-2,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="43*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Truy xuất thông đơn giá dịch vụ" Grid.ColumnSpan="2"/>
+                                <TextBox x:Name="dgdv_search" Width="748" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="1,0,0,1" Margin="135,4,0,0" Grid.Column="1" TextChanged="dgdv_search_TextChanged"/>
+                                <DataGrid x:Name="dgdv_data" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,28,0,124" Grid.ColumnSpan="2" SelectionChanged="dgdv_data_SelectionChanged"/>
+                                <Button x:Name="dgdv_out" Margin="0,0,823,78" Background="#FF83E893" Content="Xuất file xcel" Foreground="White" Width="123" Height="20" VerticalAlignment="Bottom" Grid.Column="1" Click="dgdv_out_Click"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Style="{DynamicResource TabItemStyle1}" >
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" >
+                                    <Image Width="20" Source="D:\File\APP_DACS_QLKTX\APP_DACS_QLKTX\Icons\r_s.png"></Image>
+                                    <TextBlock Text="Phòng-CSVC"></TextBlock>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="341*"/>
+                                    <ColumnDefinition Width="153*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Truy xuất thông tin phòng csvc" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="177"/>
+                                <TextBox x:Name="pcsvc_search" Width="598" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="1,0,0,1" Margin="187,4,0,0"  Grid.ColumnSpan="2" TextChanged="pcsvc_search_TextChanged"/>
+                                <Button x:Name="pcsvc_reload" Content="Tải lại" Width="123" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Margin="153,6,0,0" Background="#FF92A8ED" Foreground="White" Click="pcsvc_reload_Click"/>
+                                <DataGrid x:Name="pcsvc_data" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,28,-2,124" Grid.ColumnSpan="2" SelectionChanged="pcsvc_data_SelectionChanged"/>
+                                <CheckBox x:Name="pcsvc_dhh" Content="Có đồ đạc bị hư hỏng" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="43,0,0,80" Checked="pcsvc_dhh_Checked" />
+                                <Button x:Name="pcsvc_out" Margin="211,0,348,78" Content="Xuất file xcel" Width="123" Height="20" VerticalAlignment="Bottom" Background="#FF83E893" Foreground="White" Click="pcsvc_out_Click"/>
+
+                            </Grid>
+                        </TabItem>
+                        <TabItem Style="{DynamicResource TabItemStyle1}" >
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                    <Image Source="D:\File\APP_DACS_QLKTX\APP_DACS_QLKTX\Icons\r_b.png" Width="20"></Image>
+                                    <TextBlock Text="Hóa đơn dịch vụ"></TextBlock>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+                                <Label Content="Truy xuất thông tin hóa đơn và đơn giá dịch vụ" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="288"/>
+                                <TextBox x:Name="hddg_search" Width="598" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="1,0,0,1" Margin="275,4,0,0" TextChanged="hddg_search_TextChanged"/>
+                                <DataGrid x:Name="hddg_data" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,28,-2,124" SelectionChanged="hddg_data_SelectionChanged"/>
+                                <Button x:Name="hddg_out" Margin="55,0,1022,78" Background="#FF83E893" Content="Xuất file xcel" Foreground="White" Width="123" Height="20" VerticalAlignment="Bottom" Click="hddg_out_Click"/>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+
+                </Grid>
+            </TabItem>
+            <TabItem Width="120" x:Name="ct_cn" Style="{DynamicResource TabItemStyle}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                        <Image Width="25" Source="D:\File\APP_DACS_QLKTX\APP_DACS_QLKTX\Icons\Updating.png" />
+                        <TextBlock Text="Cập nhập" Height="18"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+
+                    <TabControl VerticalAlignment="Top" Height="500" Background="AliceBlue" Style="{DynamicResource TabControlStyle}">
+                        <TabItem x:Name="cn_sv" Style="{DynamicResource TabItemStyle1}">
+                            <TabItem.Header >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Image Width = "30" Source = "D:\File\DACS_APP_QLKTX\DACS_APP_QLKTX\Icon\student.png" />
+                                    <TextBlock Text="Sinh viên" Height="19" Margin="10,0,0,0"/>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+                                <TextBox x:Name="ud_sv_search" HorizontalAlignment="Left" Margin="320,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="427" />
+                                <Label Content="Nhập mã sinh viên muốn tìm" HorizontalAlignment="Left" Margin="130,6,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Mã sinh viên" HorizontalAlignment="Left" Margin="130,58,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Họ và Tên" HorizontalAlignment="Left" Margin="130,88,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Ngày sinh" HorizontalAlignment="Left" Margin="130,118,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Giới tính" HorizontalAlignment="Left" Margin="130,148,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Địa chỉ" HorizontalAlignment="Left" Margin="130,178,0,0" VerticalAlignment="Top"/>
+                                <Label Content="SDT" HorizontalAlignment="Left" Margin="130,208,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Mã khoa" HorizontalAlignment="Left" Margin="130,238,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Tên thân nhân" HorizontalAlignment="Left" Margin="130,268,0,0" VerticalAlignment="Top"/>
+                                <Label Content="SDT thân nhân" HorizontalAlignment="Left" Margin="130,298,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Quan hệ với sinh viên" HorizontalAlignment="Left" Margin="130,328,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Số lần kỷ luật" HorizontalAlignment="Left" Margin="130,358,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_sv_msv" HorizontalAlignment="Left" Margin="275,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_sv_msv_TextChanged" />
+                                <TextBox x:Name="ud_sv_name" HorizontalAlignment="Left" Margin="275,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_sv_name_TextChanged"/>
+                                <TextBox x:Name="ud_sv_dob" HorizontalAlignment="Left" Margin="275,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_sv_dob_TextChanged"/>
+                                <TextBox x:Name="ud_sv_g" HorizontalAlignment="Left" Margin="275,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_sv_g_TextChanged"/>
+                                <TextBox x:Name="ud_sv_dc" HorizontalAlignment="Left" Margin="275,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_sv_dc_TextChanged"/>
+                                <TextBox x:Name="ud_sv_sdt" HorizontalAlignment="Left" Margin="275,212,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_sv_sdt_TextChanged"/>
+                                <TextBox x:Name="ud_sv_mk" HorizontalAlignment="Left" Margin="275,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_sv_mk_TextChanged"/>
+                                <TextBox x:Name="ud_sv_pname" HorizontalAlignment="Left" Margin="275,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_sv_pname_TextChanged"/>
+                                <TextBox x:Name="ud_sv_sdt_p" HorizontalAlignment="Left" Margin="275,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_sv_sdt_p_TextChanged"/>
+                                <TextBox x:Name="ud_sv_qh" HorizontalAlignment="Left" Margin="275,332,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_sv_qh_TextChanged"/>
+                                <TextBox x:Name="ud_sv_slkl" HorizontalAlignment="Left" Margin="275,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_sv_slkl_TextChanged"/>
+                                <Button x:Name="ud_sv_add" Content="Thêm" HorizontalAlignment="Left" Margin="600,61,0,0" VerticalAlignment="Top" Width="147" BorderBrush="{x:Null}" Background="#FF9DEA9D" Click="ud_sv_add_Click" IsEnabled="False"/>
+                                <Button x:Name="ud_sv_change" Content="Sửa" HorizontalAlignment="Left" Margin="600,91,0,0" VerticalAlignment="Top" Width="147" Background="#FFA2DAFF" BorderBrush="{x:Null}" IsEnabled="False" Click="ud_sv_change_Click"/>
+                                <Button x:Name="ud_sv_clearn" Content="Clean" HorizontalAlignment="Left" Margin="600,121,0,0" VerticalAlignment="Top" Width="147" Background="#FF87E1F0" IsEnabled="False" Click="ud_sv_clearn_Click" BorderBrush="{x:Null}"/>
+                                <Button x:Name="ud_sv_search_bt" Content="Tìm" HorizontalAlignment="Left" Margin="778,9,0,0" VerticalAlignment="Top" Width="147" BorderBrush="{x:Null}" Background="#FF9DEA9D" Click="ud_sv_search_bt_Click"/>
+                                <Button x:Name="ud_sv_delete" Content="Xóa" HorizontalAlignment="Left" Margin="600,151,0,0" VerticalAlignment="Top" Width="147" Background="#FFFF6565" IsEnabled="False" Click="ud_sv_delete_Click" BorderBrush="{x:Null}"/>
+                                <DataGrid x:Name="ud_sv_data" d:ItemsSource="{d:SampleData ItemCount=1}" Margin="534,188,10,74"/>
+
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="cn_k" Style="{DynamicResource TabItemStyle1}">
+                            <TabItem.Header >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Image Width = "25" Source = "D:\File\DACS_APP_QLKTX\DACS_APP_QLKTX\Icon\Faculty.png" />
+                                    <TextBlock Text="Khoa" Height="19" Margin="10,0,0,0"/>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+                                <Label Content="Nhập mã khoa muốn tìm" HorizontalAlignment="Left" Margin="130,6,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_k_search" HorizontalAlignment="Left" Margin="320,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="427" />
+                                <Button x:Name="ud_k_search_bt" Content="Tìm" HorizontalAlignment="Left" Margin="778,9,0,0" VerticalAlignment="Top" Width="147" BorderBrush="{x:Null}" Background="#FF9DEA9D" Click="ud_k_search_bt_Click"/>
+                                <Label Content="Mã khoa" HorizontalAlignment="Left" Margin="130,58,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Tên khoa" HorizontalAlignment="Left" Margin="130,88,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_k_mk" HorizontalAlignment="Left" Margin="275,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_k_mk_TextChanged" />
+                                <TextBox x:Name="ud_k_name" HorizontalAlignment="Left" Margin="275,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_k_name_TextChanged"/>
+                                <Button x:Name="ud_k_add" Content="Thêm" HorizontalAlignment="Left" Margin="600,61,0,0" VerticalAlignment="Top" Width="147" BorderBrush="{x:Null}" Background="#FF9DEA9D" IsEnabled="False" Click="ud_k_add_Click"/>
+                                <Button x:Name="ud_k_change" Content="Sửa" HorizontalAlignment="Left" Margin="600,91,0,0" VerticalAlignment="Top" Width="147" Background="#FFA2DAFF" BorderBrush="{x:Null}" IsEnabled="False" Click="ud_k_change_Click"/>
+                                <Button x:Name="ud_k_clearn" Content="Clean" HorizontalAlignment="Left" Margin="600,121,0,0" VerticalAlignment="Top" Width="147" Background="#FF87E1F0" IsEnabled="False" BorderBrush="{x:Null}" Click="ud_k_clearn_Click"/>
+                                <Button x:Name="ud_k_delete" Content="Xóa" HorizontalAlignment="Left" Margin="600,151,0,0" VerticalAlignment="Top" Width="147" Background="#FFFF6565" IsEnabled="False" BorderBrush="{x:Null}" Click="ud_k_delete_Click"/>
+                                <DataGrid x:Name="ud_k_data" d:ItemsSource="{d:SampleData ItemCount=1}" Margin="130,123,605,167"/>
+
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="cn_tktx" Style="{DynamicResource TabItemStyle1}">
+                            <TabItem.Header >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Image Width = "30" Source = "D:\File\DACS_APP_QLKTX\DACS_APP_QLKTX\Icon\building.png" />
+                                    <TextBlock Text="Tòa KTX" Height="19" Margin="10,0,0,0"/>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+                                <TextBox x:Name="ud_tktx_search" HorizontalAlignment="Left" Margin="320,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="427" />
+                                <Label Content="Nhập mã tòa muốn tìm" HorizontalAlignment="Left" Margin="130,6,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Mã tòa" HorizontalAlignment="Left" Margin="130,58,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Số lượng phòng" HorizontalAlignment="Left" Margin="130,88,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_tktx_mt" HorizontalAlignment="Left" Margin="275,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_tktx_mt_TextChanged"  />
+                                <TextBox x:Name="ud_tktx_slp" HorizontalAlignment="Left" Margin="275,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_tktx_slp_TextChanged" />
+                                <Button x:Name="ud_tktx_search_bt" Content="Tìm" HorizontalAlignment="Left" Margin="778,9,0,0" VerticalAlignment="Top" Width="147" BorderBrush="{x:Null}" Background="#FF9DEA9D" Click="ud_tktx_search_bt_Click" />
+                                <Button x:Name="ud_tktx_add" Content="Thêm" HorizontalAlignment="Left" Margin="600,61,0,0" VerticalAlignment="Top" Width="147" BorderBrush="{x:Null}" Background="#FF9DEA9D" IsEnabled="False" Click="ud_tktx_add_Click" />
+                                <Button x:Name="ud_tktx_change" Content="Sửa" HorizontalAlignment="Left" Margin="600,91,0,0" VerticalAlignment="Top" Width="147" Background="#FFA2DAFF" BorderBrush="{x:Null}" IsEnabled="False" Click="ud_tktx_change_Click"/>
+                                <Button x:Name="ud_tktx_clearn" Content="Clean" HorizontalAlignment="Left" Margin="600,121,0,0" VerticalAlignment="Top" Width="147" Background="#FF87E1F0" IsEnabled="False" BorderBrush="{x:Null}" Click="ud_tktx_clearn_Click"/>
+                                <Button x:Name="ud_tktx_delete" Content="Xóa" HorizontalAlignment="Left" Margin="600,151,0,0" VerticalAlignment="Top" Width="147" Background="#FFFF6565" IsEnabled="False" BorderBrush="{x:Null}" Click="ud_tktx_delete_Click"/>
+                                <Label Content="Tình trạng" HorizontalAlignment="Left" Margin="130,118,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_tktx_tt" HorizontalAlignment="Left" Margin="275,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_tktx_tt_TextChanged"/>
+                                <DataGrid x:Name="ud_tktx_data" d:ItemsSource="{d:SampleData ItemCount=1}" Margin="130,154,605,136"/>
+
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="cn_pktx" Style="{DynamicResource TabItemStyle1}">
+                            <TabItem.Header >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Image Width = "30" Source = "D:\File\DACS_APP_QLKTX\DACS_APP_QLKTX\Icon\room.png" />
+                                    <TextBlock Text="Phòng KTX" Height="19" Margin="10,0,0,0"/>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+                                <Label Content="Nhập mã phòng muốn tìm" HorizontalAlignment="Left" Margin="130,6,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_pktx_search" HorizontalAlignment="Left" Margin="320,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="427" />
+                                <Label Content="Mã phòng" HorizontalAlignment="Left" Margin="130,58,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Mã tòa" HorizontalAlignment="Left" Margin="130,88,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Số lượng sinh viên" HorizontalAlignment="Left" Margin="130,118,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_pktx_mp" HorizontalAlignment="Left" Margin="275,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_pktx_mp_TextChanged" />
+                                <TextBox x:Name="ud_pktx_mt" HorizontalAlignment="Left" Margin="275,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_pktx_mt_TextChanged" />
+                                <TextBox x:Name="ud_pktx_slsv" HorizontalAlignment="Left" Margin="275,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_pktx_slsv_TextChanged"/>
+                                <Label Content="Tình trạng" HorizontalAlignment="Left" Margin="130,148,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_pktx_tt" HorizontalAlignment="Left" Margin="275,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_pktx_tt_TextChanged" />
+                                <DataGrid x:Name="ud_pktx_data" d:ItemsSource="{d:SampleData ItemCount=1}" Margin="130,184,608,106"/>
+                                <Button x:Name="ud_pktx_search_bt" Content="Tìm" HorizontalAlignment="Left" Margin="778,9,0,0" VerticalAlignment="Top" Width="147" BorderBrush="{x:Null}" Background="#FF9DEA9D" Click="ud_pktx_search_bt_Click"  />
+                                <Button x:Name="ud_pktx_add" Content="Thêm" HorizontalAlignment="Left" Margin="600,61,0,0" VerticalAlignment="Top" Width="147" BorderBrush="{x:Null}" Background="#FF9DEA9D" IsEnabled="False" Click="ud_pktx_add_Click"  />
+                                <Button x:Name="ud_pktx_change" Content="Sửa" HorizontalAlignment="Left" Margin="600,91,0,0" VerticalAlignment="Top" Width="147" Background="#FFA2DAFF" BorderBrush="{x:Null}" IsEnabled="False" Click="ud_pktx_change_Click" />
+                                <Button x:Name="ud_pktx_clearn" Content="Clean" HorizontalAlignment="Left" Margin="600,121,0,0" VerticalAlignment="Top" Width="147" Background="#FF87E1F0" IsEnabled="False" BorderBrush="{x:Null}" Click="ud_pktx_clearn_Click" />
+                                <Button x:Name="ud_pktx_delete" Content="Xóa" HorizontalAlignment="Left" Margin="600,151,0,0" VerticalAlignment="Top" Width="147" Background="#FFFF6565" IsEnabled="False" BorderBrush="{x:Null}" Click="ud_pktx_delete_Click" />
+
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="cn_hopd" Style="{DynamicResource TabItemStyle1}">
+                            <TabItem.Header >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Image Width = "30" Source = "D:\File\DACS_APP_QLKTX\DACS_APP_QLKTX\Icon\contract.png" />
+                                    <TextBlock Text="Hợp đồng" Height="19" Margin="10,0,0,0"/>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+                                <Label Content="Nhập mã hợp đồng muốn tìm" HorizontalAlignment="Left" Margin="130,6,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_hopd_search" HorizontalAlignment="Left" Margin="320,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="427" />
+                                <Label Content="Mã hợp đồng" HorizontalAlignment="Left" Margin="130,58,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_hopd_mhd" HorizontalAlignment="Left" Margin="275,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_hopd_mhd_TextChanged"  />
+                                <Label Content="Mã sinh viên" HorizontalAlignment="Left" Margin="130,88,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_hopd_msv" HorizontalAlignment="Left" Margin="275,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_hopd_msv_TextChanged"  />
+                                <Label Content="Mã phòng" HorizontalAlignment="Left" Margin="130,118,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_hopd_mp" HorizontalAlignment="Left" Margin="275,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_hopd_mp_TextChanged" />
+                                <Label Content="Ngày lập hóa đơn" HorizontalAlignment="Left" Margin="130,148,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_hopd_nlhd" HorizontalAlignment="Left" Margin="275,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_hopd_nlhd_TextChanged" />
+                                <Label Content="Hạn hóa đơn" HorizontalAlignment="Left" Margin="130,178,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_hopd_hhd" HorizontalAlignment="Left" Margin="275,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_hopd_hhd_TextChanged" />
+                                <Button x:Name="ud_hopd_add" Content="Thêm" HorizontalAlignment="Left" Margin="600,61,0,0" VerticalAlignment="Top" Width="147" BorderBrush="{x:Null}" Background="#FF9DEA9D" IsEnabled="False" Click="ud_hopd_add_Click"/>
+                                <Button x:Name="ud_hopd_clearn" Content="Clean" HorizontalAlignment="Left" Margin="600,121,0,0" VerticalAlignment="Top" Width="147" Background="#FF87E1F0" IsEnabled="False" BorderBrush="{x:Null}" Click="ud_hopd_clearn_Click" />
+                                <Button x:Name="ud_hopd_delete" Content="Xóa" HorizontalAlignment="Left" Margin="600,151,0,0" VerticalAlignment="Top" Width="147" Background="#FFFF6565" IsEnabled="False" BorderBrush="{x:Null}" Click="ud_hopd_delete_Click"  />
+                                <Button x:Name="ud_hopd_change" Content="Sửa" HorizontalAlignment="Left" Margin="600,91,0,0" VerticalAlignment="Top" Width="147" Background="#FFA2DAFF" BorderBrush="{x:Null}" IsEnabled="False" Click="ud_hopd_change_Click" />
+                                <DataGrid x:Name="ud_hopd_data" d:ItemsSource="{d:SampleData ItemCount=1}" Margin="130,216,616,74"/>
+                                <Button x:Name="ud_hopd_search_bt" Content="Tìm" HorizontalAlignment="Left" Margin="778,9,0,0" VerticalAlignment="Top" Width="147" BorderBrush="{x:Null}" Background="#FF9DEA9D" Click="ud_hopd_search_bt_Click"  />
+
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="cn_hoad" Style="{DynamicResource TabItemStyle1}">
+                            <TabItem.Header >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Image Width = "30" Source = "D:\File\DACS_APP_QLKTX\DACS_APP_QLKTX\Icon\bills.png" />
+                                    <TextBlock Text="Hóa đơn" Height="19" Margin="10,0,0,0"/>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+                                <TextBox x:Name="ud_hoad_search" HorizontalAlignment="Left" Margin="320,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="427" />
+                                <Label Content="Nhập mã hóa đơn muốn tìm" HorizontalAlignment="Left" Margin="130,6,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Mã hóa đơn" HorizontalAlignment="Left" Margin="130,58,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_hoad_mhd" HorizontalAlignment="Left" Margin="275,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_hoad_mhd_TextChanged"  />
+                                <Label Content="Mã phòng" HorizontalAlignment="Left" Margin="130,88,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_hoad_mp" HorizontalAlignment="Left" Margin="275,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_hoad_mp_TextChanged"  />
+                                <Label Content="Số điện đầu" HorizontalAlignment="Left" Margin="130,118,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_hoad_sdd" HorizontalAlignment="Left" Margin="275,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_hoad_sdd_TextChanged" />
+                                <Label Content="Số điện cuối" HorizontalAlignment="Left" Margin="130,148,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_hoad_sdc" HorizontalAlignment="Left" Margin="275,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_hoad_sdc_TextChanged" />
+                                <Label Content="Số nước đầu" HorizontalAlignment="Left" Margin="130,178,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_hoad_snd" HorizontalAlignment="Left" Margin="275,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_hoad_snd_TextChanged" />
+                                <Button x:Name="ud_hoad_add" Content="Thêm" HorizontalAlignment="Left" Margin="600,61,0,0" VerticalAlignment="Top" Width="147" BorderBrush="{x:Null}" Background="#FF9DEA9D" IsEnabled="False" Click="ud_hoad_add_Click"  />
+                                <Button x:Name="ud_hoad_change" Content="Sửa" HorizontalAlignment="Left" Margin="600,91,0,0" VerticalAlignment="Top" Width="147" Background="#FFA2DAFF" BorderBrush="{x:Null}" IsEnabled="False" Click="ud_hoad_change_Click" />
+                                <Button x:Name="ud_hoad_clearn" Content="Clean" HorizontalAlignment="Left" Margin="600,121,0,0" VerticalAlignment="Top" Width="147" Background="#FF87E1F0" IsEnabled="False" BorderBrush="{x:Null}" Click="ud_hoad_clearn_Click" />
+                                <Button x:Name="ud_hoad_delete" Content="Xóa" HorizontalAlignment="Left" Margin="600,151,0,0" VerticalAlignment="Top" Width="147" Background="#FFFF6565" IsEnabled="False" BorderBrush="{x:Null}" Click="ud_hoad_delete_Click"  />
+                                <Button x:Name="ud_hoad_search_bt" Content="Tìm" HorizontalAlignment="Left" Margin="778,9,0,0" VerticalAlignment="Top" Width="147" BorderBrush="{x:Null}" Background="#FF9DEA9D" Click="ud_hoad_search_bt_Click"  />
+                                <Label Content="Số nước cuối" HorizontalAlignment="Left" Margin="130,208,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_hoad_snc" HorizontalAlignment="Left" Margin="275,212,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_hoad_snc_TextChanged" />
+                                <Label Content="Ngày lập hóa đơn" HorizontalAlignment="Left" Margin="130,238,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_hoad_nlhd" HorizontalAlignment="Left" Margin="275,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_hoad_nlhd_TextChanged" />
+                                <Label Content="Tình trạng" HorizontalAlignment="Left" Margin="130,268,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_hoad_tt" HorizontalAlignment="Left" Margin="275,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_hoad_tt_TextChanged" />
+                                <DataGrid x:Name="ud_hoad_data" d:ItemsSource="{d:SampleData ItemCount=1}" Margin="130,306,616,10"/>
+
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="cn_csvc" Style="{DynamicResource TabItemStyle1}">
+                            <TabItem.Header >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Image Width = "30" Source = "D:\File\DACS_APP_QLKTX\DACS_APP_QLKTX\Icon\homeitem.png" />
+                                    <TextBlock Text="CSVC" Height="19" Margin="10,0,0,0"/>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+                                <Label Content="Nhập mã cơ sở vật chất muốn tìm" HorizontalAlignment="Left" Margin="130,6,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_csvc_search" HorizontalAlignment="Left" Margin="332,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="427" />
+                                <Label Content="Mã cơ sở vật chất" HorizontalAlignment="Left" Margin="130,58,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_csvc_mcsvc" HorizontalAlignment="Left" Margin="275,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_csvc_mcsvc_TextChanged"  />
+                                <Label Content="Tên cơ sở vật chất" HorizontalAlignment="Left" Margin="130,88,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_csvc_name" HorizontalAlignment="Left" Margin="275,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_csvc_name_TextChanged"  />
+                                <DataGrid x:Name="ud_csvc_data" d:ItemsSource="{d:SampleData ItemCount=1}" Margin="130,123,605,167"/>
+                                <Button x:Name="ud_csvc_add" Content="Thêm" HorizontalAlignment="Left" Margin="600,61,0,0" VerticalAlignment="Top" Width="147" BorderBrush="{x:Null}" Background="#FF9DEA9D" IsEnabled="False" Click="ud_csvc_add_Click"  />
+                                <Button x:Name="ud_csvc_change" Content="Sửa" HorizontalAlignment="Left" Margin="600,91,0,0" VerticalAlignment="Top" Width="147" Background="#FFA2DAFF" BorderBrush="{x:Null}" IsEnabled="False" Click="ud_csvc_change_Click" />
+                                <Button x:Name="ud_csvc_clearn" Content="Clean" HorizontalAlignment="Left" Margin="600,121,0,0" VerticalAlignment="Top" Width="147" Background="#FF87E1F0" IsEnabled="False" BorderBrush="{x:Null}" Click="ud_csvc_clearn_Click" />
+                                <Button x:Name="ud_csvc_delete" Content="Xóa" HorizontalAlignment="Left" Margin="600,151,0,0" VerticalAlignment="Top" Width="147" Background="#FFFF6565" IsEnabled="False" BorderBrush="{x:Null}" Click="ud_csvc_delete_Click"  />
+                                <Button x:Name="ud_csvc_search_bt" Content="Tìm" HorizontalAlignment="Left" Margin="778,9,0,0" VerticalAlignment="Top" Width="147" BorderBrush="{x:Null}" Background="#FF9DEA9D" Click="ud_csvc_search_bt_Click"  />
+
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="cn_dgdv" Style="{DynamicResource TabItemStyle1}">
+                            <TabItem.Header >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Image Width = "30" Source = "D:\File\DACS_APP_QLKTX\DACS_APP_QLKTX\Icon\price.png" />
+                                    <TextBlock Text="DGDV" Height="19" Margin="10,0,0,0"/>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+                                <Label Content="Nhập mã đơn giá dịch vụ muốn tìm" HorizontalAlignment="Left" Margin="130,6,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_dgdv_search" HorizontalAlignment="Left" Margin="332,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="427" />
+                                <Button x:Name="ud_dgdv_search_bt" Content="Tìm" HorizontalAlignment="Left" Margin="778,9,0,0" VerticalAlignment="Top" Width="147" BorderBrush="{x:Null}" Background="#FF9DEA9D" Click="ud_dgdv_search_bt_Click"  />
+                                <TextBox x:Name="ud_dgdv_mdg" HorizontalAlignment="Left" Margin="275,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_dgdv_mdg_TextChanged"  />
+                                <Label Content="Mã đơn giá dịch vụ" HorizontalAlignment="Left" Margin="130,58,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Tên đơn giá dịch vụ" HorizontalAlignment="Left" Margin="130,88,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_dgdv_name" HorizontalAlignment="Left" Margin="275,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_dgdv_name_TextChanged"  />
+                                <Label Content="Phí đơn giá dịch vụ" HorizontalAlignment="Left" Margin="130,118,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_dgdv_pdg" HorizontalAlignment="Left" Margin="275,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_dgdv_pdg_TextChanged" />
+                                <DataGrid x:Name="ud_dgdv_data" d:ItemsSource="{d:SampleData ItemCount=1}" Margin="130,155,605,135"/>
+                                <Button x:Name="ud_dgdv_add" Content="Thêm" HorizontalAlignment="Left" Margin="600,61,0,0" VerticalAlignment="Top" Width="147" BorderBrush="{x:Null}" Background="#FF9DEA9D" IsEnabled="False" Click="ud_dgdv_add_Click"  />
+                                <Button x:Name="ud_dgdv_change" Content="Sửa" HorizontalAlignment="Left" Margin="600,91,0,0" VerticalAlignment="Top" Width="147" Background="#FFA2DAFF" BorderBrush="{x:Null}" IsEnabled="False" Click="ud_dgdv_change_Click" />
+                                <Button x:Name="ud_dgdv_clearn" Content="Clean" HorizontalAlignment="Left" Margin="600,121,0,0" VerticalAlignment="Top" Width="147" Background="#FF87E1F0" IsEnabled="False" BorderBrush="{x:Null}" Click="ud_dgdv_clearn_Click" />
+                                <Button x:Name="ud_dgdv_delete" Content="Xóa" HorizontalAlignment="Left" Margin="600,151,0,0" VerticalAlignment="Top" Width="147" Background="#FFFF6565" IsEnabled="False" BorderBrush="{x:Null}" Click="ud_dgdv_delete_Click"  />
+
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="cn_pcsvc" Style="{DynamicResource TabItemStyle1}">
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" >
+                                    <Image Width="20" Source="D:\File\APP_DACS_QLKTX\APP_DACS_QLKTX\Icons\r_s.png"></Image>
+                                    <TextBlock Text="Phòng-CSVC"></TextBlock>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+                                <Label Content="Nhập mã phòng" HorizontalAlignment="Left" Margin="130,6,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_pcsvc_mp_search" HorizontalAlignment="Left" Margin="275,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" />
+                                <Button x:Name="ud_pcsvc_search_bt" Content="Tìm" HorizontalAlignment="Left" Margin="778,9,0,0" VerticalAlignment="Top" Width="147" BorderBrush="{x:Null}" Background="#FF9DEA9D" Click="ud_pcsvc_search_bt_Click"  />
+                                <Label Content="Mã phòng" HorizontalAlignment="Left" Margin="130,58,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_pcsvc_mp" HorizontalAlignment="Left" Margin="275,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_pcsvc_mp_TextChanged"  />
+                                <Label Content="Mã cơ sở vật chất" HorizontalAlignment="Left" Margin="130,88,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_pcsvc_mcsvc" HorizontalAlignment="Left" Margin="275,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_pcsvc_mcsvc_TextChanged"  />
+                                <Label Content="Số lượng" HorizontalAlignment="Left" Margin="130,118,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_pcsvc_sl" HorizontalAlignment="Left" Margin="275,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_pcsvc_sl_TextChanged" />
+                                <Label Content="Tình trạng" HorizontalAlignment="Left" Margin="130,148,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_pcsvc_tt" HorizontalAlignment="Left" Margin="275,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_pcsvc_tt_TextChanged" />
+                                <DataGrid x:Name="ud_pcsvc_data" d:ItemsSource="{d:SampleData ItemCount=1}" Margin="130,185,612,105"/>
+                                <Button x:Name="ud_pcsvc_add" Content="Thêm" HorizontalAlignment="Left" Margin="600,61,0,0" VerticalAlignment="Top" Width="147" BorderBrush="{x:Null}" Background="#FF9DEA9D" IsEnabled="False" Click="ud_pcsvc_add_Click"  />
+                                <Button x:Name="ud_pcsvc_change" Content="Sửa" HorizontalAlignment="Left" Margin="600,91,0,0" VerticalAlignment="Top" Width="147" Background="#FFA2DAFF" BorderBrush="{x:Null}" IsEnabled="False" Click="ud_pcsvc_change_Click" />
+                                <Button x:Name="ud_pcsvc_clearn" Content="Clean" HorizontalAlignment="Left" Margin="600,121,0,0" VerticalAlignment="Top" Width="147" Background="#FF87E1F0" IsEnabled="False" BorderBrush="{x:Null}" Click="ud_pcsvc_clearn_Click" />
+                                <Button x:Name="ud_pcsvc_delete" Content="Xóa" HorizontalAlignment="Left" Margin="600,151,0,0" VerticalAlignment="Top" Width="147" Background="#FFFF6565" IsEnabled="False" BorderBrush="{x:Null}" Click="ud_pcsvc_delete_Click"  />
+                                <Label Content="Nhập mã csvc" HorizontalAlignment="Left" Margin="425,5,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_pcsvc_mcsvc_search" HorizontalAlignment="Left" Margin="550,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" />
+
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="cn_hddg" Style="{DynamicResource TabItemStyle1}">
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                    <Image Source="D:\File\APP_DACS_QLKTX\APP_DACS_QLKTX\Icons\r_b.png" Width="20"></Image>
+                                    <TextBlock Text="Hóa đơn dịch vụ"></TextBlock>
+                                </StackPanel>
+                            </TabItem.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="12*"/>
+                                    <ColumnDefinition Width="7*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Nhập mã hóa đơn" HorizontalAlignment="Left" Margin="130,6,0,0" VerticalAlignment="Top"/>
+                                <Label Content="Nhập mã dich vụ" HorizontalAlignment="Left" Margin="425,5,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_hddg_mhd_search" HorizontalAlignment="Left" Margin="275,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" />
+                                <TextBox x:Name="ud_hddg_mdv_search" HorizontalAlignment="Left" Margin="550,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" Grid.ColumnSpan="2" />
+                                <Button x:Name="ud_hddg_search_bt" Content="Tìm" HorizontalAlignment="Left" Margin="154,9,0,0" VerticalAlignment="Top" Width="147" BorderBrush="{x:Null}" Background="#FF9DEA9D" Grid.Column="1" Click="ud_hddg_search_bt_Click"  />
+                                <Label Content="Mã hóa đơn" HorizontalAlignment="Left" Margin="130,58,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_hddg_mhd" HorizontalAlignment="Left" Margin="275,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_hddg_mhd_TextChanged"  />
+                                <Label Content="Mã dịch vụ" HorizontalAlignment="Left" Margin="130,88,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_hddg_mdv" HorizontalAlignment="Left" Margin="275,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_hddg_mdv_TextChanged"  />
+                                <Label Content="Tên dịch vụ" HorizontalAlignment="Left" Margin="130,118,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ud_hddg_name" HorizontalAlignment="Left" Margin="275,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="ud_hddg_name_TextChanged" />
+                                <DataGrid x:Name="ud_hddg_data" d:ItemsSource="{d:SampleData ItemCount=1}" Margin="130,155,163,135"/>
+                                <Button x:Name="ud_hddg_add" Content="Thêm" HorizontalAlignment="Left" Margin="600,61,0,0" VerticalAlignment="Top" Width="147" BorderBrush="{x:Null}" Background="#FF9DEA9D" IsEnabled="False" Grid.ColumnSpan="2" Click="ud_hddg_add_Click"  />
+                                <Button x:Name="ud_hddg_change" Content="Sửa" HorizontalAlignment="Left" Margin="600,91,0,0" VerticalAlignment="Top" Width="147" Background="#FFA2DAFF" BorderBrush="{x:Null}" IsEnabled="False" Grid.ColumnSpan="2" Click="ud_hddg_change_Click" />
+                                <Button x:Name="ud_hddg_clearn" Content="Clean" HorizontalAlignment="Left" Margin="600,121,0,0" VerticalAlignment="Top" Width="147" Background="#FF87E1F0" IsEnabled="False" BorderBrush="{x:Null}" Grid.ColumnSpan="2" Click="ud_hddg_clearn_Click" />
+                                <Button x:Name="ud_hddg_delete" Content="Xóa" HorizontalAlignment="Left" Margin="600,151,0,0" VerticalAlignment="Top" Width="147" Background="#FFFF6565" IsEnabled="False" BorderBrush="{x:Null}" Grid.ColumnSpan="2" Click="ud_hddg_delete_Click"  />
+
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+
+                </Grid>
+            </TabItem>
+            <TabItem Width="120"  x:Name="ct_tk" Style="{DynamicResource TabItemStyle0}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                        <Image Width="25" Source="D:\File\APP_DACS_QLKTX\APP_DACS_QLKTX\Icons\kt.png" />
+                        <TextBlock Text="Thông kê" Height="18"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Background="White">
+                    <Grid Background="#FFBBD8F9" Margin="10,9,667,423">
+                        <Label Content="Số hóa đơn đã thanh toán" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top"/>
+                        <lvc:PieChart Name="Chart" InnerRadius="0" Series="{Binding SeriesCollection3}" 
+                      LegendLocation="Left"  Margin="239,0,75,0">
+                            <lvc:PieChart.ChartLegend>
+                                <lvc:DefaultLegend ></lvc:DefaultLegend>
+                            </lvc:PieChart.ChartLegend>
+                            <lvc:PieChart.DataTooltip>
+                                <lvc:DefaultTooltip></lvc:DefaultTooltip>
+                            </lvc:PieChart.DataTooltip>
+                        </lvc:PieChart>
+                        <Label Content="Số hóa đơn chưa thanh toán" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Tổng số hóa đơn" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="tk_bill_dtt" HorizontalAlignment="Left" Margin="166,21,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="58" Background="{x:Null}"  Foreground="#FF2195F2"/>
+                        <TextBlock x:Name="tk_bill_ctt" HorizontalAlignment="Left" Margin="176,52,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="58" Background="{x:Null}"  Foreground="#FFF34336"/>
+                        <TextBlock x:Name="tk_bill_tt" HorizontalAlignment="Left" Margin="115,83,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="58" Background="{x:Null}"  Foreground="Black"/>
+                    </Grid>
+                    <Grid Background="#FFBBD8F9" Margin="10,126,667,10">
+                        <Grid>
+                            <ComboBox x:Name="tk_date_year" HorizontalAlignment="Left" Margin="418,73,0,0" VerticalAlignment="Top" Width="87" Background="{x:Null}" BorderBrush="{x:Null}" SelectedIndex="1" SelectionChanged="tk_date_year_SelectionChanged">
+                                <ComboBoxItem>2023</ComboBoxItem>
+                                <ComboBoxItem IsSelected="True">2022</ComboBoxItem>
+                                <ComboBoxItem>2021</ComboBoxItem>
+                                <ComboBoxItem>2020</ComboBoxItem>
+                            </ComboBox>
+                            <lvc:CartesianChart Series="{Binding SeriesCollection1}" LegendLocation="Right" Margin="0,100,0,0" >
+                                <lvc:CartesianChart.AxisY>
+                                    <lvc:Axis Title="Sales" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
+                                </lvc:CartesianChart.AxisY>
+                                <lvc:CartesianChart.AxisX>
+                                    <lvc:Axis Title="Month" Labels="{Binding Labels}"></lvc:Axis>
+                                </lvc:CartesianChart.AxisX>
+                            </lvc:CartesianChart>
+                        </Grid>
+                        <Label Content="Tiền điện trung bình:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="10"/>
+                        <Label Content="Tiền nước trung bình:" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" FontSize="10"/>
+                        <Label Content="Tổng trung bình:" HorizontalAlignment="Left" Margin="200,10,0,0" VerticalAlignment="Top" FontSize="10"/>
+                        <TextBlock x:Name="tkt0" HorizontalAlignment="Left" Margin="112,15,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="88" Background="{x:Null}"  Foreground="#FF2195F2" FontSize="10"/>
+                        <TextBlock x:Name="tkt1" HorizontalAlignment="Left" Margin="115,45,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="85" Background="{x:Null}"  Foreground="#FF2195F2" FontSize="10"/>
+                        <TextBlock x:Name="tkt2" HorizontalAlignment="Left" Margin="304,15,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="144" Background="{x:Null}"  Foreground="#FF2195F2" FontSize="10"/>
+                        <Label Content="Cao nhất:" HorizontalAlignment="Left" Margin="200,40,0,0" VerticalAlignment="Top" FontSize="10"/>
+                        <TextBlock x:Name="max0" HorizontalAlignment="Left" Margin="252,45,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="73" Background="{x:Null}"  Foreground="#FF2195F2" FontSize="10"/>
+                        <TextBlock x:Name="max1" HorizontalAlignment="Left" Margin="330,45,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" Background="{x:Null}"  Foreground="#FFF34336" FontSize="10"/>
+                        <TextBlock x:Name="max2" HorizontalAlignment="Left" Margin="413,45,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="92" Background="{x:Null}"  Foreground="#FFFEC007" FontSize="10"/>
+                        <Label Content="Mã phòng muốn kiểm tra" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" FontSize="10"/>
+                        <TextBox x:Name="tk_search" HorizontalAlignment="Left" Margin="138,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="104" FontSize="10" Background="White" BorderBrush="{x:Null}" TextChanged="tk_search_TextChanged" />
+                        <Button x:Name="tk_search_btn" Content="Tìm" HorizontalAlignment="Left" Margin="272,75,0,0" VerticalAlignment="Top" FontSize="10" Width="53" Background="#FFA5F3A0" Foreground="White" BorderBrush="{x:Null}" IsEnabled="False" Click="tk_search_btn_Click"/>
+                        <Button x:Name="tk_reload" Content="Tải lại" HorizontalAlignment="Left" Margin="342,75,0,0" VerticalAlignment="Top" FontSize="10" Width="54" Background="#FF9EADED" Foreground="White" IsEnabled="False" BorderBrush="{x:Null}" Click="tk_reload_Click"/>
+
+
+                    </Grid>
+                    <Grid Background="#FFBBD8F9" Margin="530,10,10,259">
+                        <Label Content="Số Sinh viên không vi phạm:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Số sinh viên vi phạm 1 lần:" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Số sinh viên vi phạm 2 lần:" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="s0" HorizontalAlignment="Left" Margin="175,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="#FF2195F2"/>
+                        <TextBlock x:Name="s1" HorizontalAlignment="Left" Margin="165,45,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="#FF607D8A"/>
+                        <TextBlock x:Name="s2" HorizontalAlignment="Left" Margin="165,75,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="#FFFEC007"/>
+                        <Label Content="Số sinh viên vi phạm 3 lần:" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="s3" HorizontalAlignment="Left" Margin="165,105,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="#FFF34336"/>
+                        <lvc:PieChart x:Name="Chart2" InnerRadius="40" Series="{Binding SeriesCollection}" 
+                            LegendLocation="Right"  Margin="258,-2,10,144">
+                            <lvc:PieChart.ChartLegend>
+                                <lvc:DefaultLegend />
+                            </lvc:PieChart.ChartLegend>
+                            <lvc:PieChart.DataTooltip>
+                                <lvc:DefaultTooltip/>
+                            </lvc:PieChart.DataTooltip>
+                        </lvc:PieChart>
+                        <lvc:PieChart x:Name="Chart3" InnerRadius="30" Series="{Binding SeriesCollection4}" 
+                            LegendLocation="Right"  Margin="10,160,262,10">
+                            <lvc:PieChart.ChartLegend>
+                                <lvc:DefaultLegend />
+                            </lvc:PieChart.ChartLegend>
+                            <lvc:PieChart.DataTooltip>
+                                <lvc:DefaultTooltip/>
+                            </lvc:PieChart.DataTooltip>
+                        </lvc:PieChart>
+                        <Label Content="Sinh viên ở các khoa" HorizontalAlignment="Left" Margin="331,131,0,0" VerticalAlignment="Top" Foreground="#FFEA7575"/>
+
+                    </Grid>
+                    <Grid Background="#FFBBD8F9" Margin="530,290,10,10">
+                        <Label Content="Số sinh viên đã hết hợp đồng:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="10"/>
+                        <Label Content="Số sinh viên còn hợp đồng:" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" FontSize="10"/>
+                        <Label Content="Tổng số sinh viên:" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" FontSize="10"/>
+                        <TextBlock x:Name="tk_tt_svhhhd" HorizontalAlignment="Left" Margin="153,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="10" Foreground="#FFF34336"/>
+                        <TextBlock x:Name="tk_tt_svchd" HorizontalAlignment="Left" Margin="153,35,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="10" Foreground="#FF2195F2"/>
+                        <TextBlock x:Name="tk_tt_sv" HorizontalAlignment="Left" Margin="153,55,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="10"/>
+                        <Label Content="Tổng số hợp đồng:" HorizontalAlignment="Left" Margin="251,10,0,0" VerticalAlignment="Top" FontSize="10"/>
+                        <Label Content="Tổng số phòng:" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" FontSize="10"/>
+                        <Label Content="Tổng số tòa:" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" FontSize="10"/>
+                        <TextBlock x:Name="tk_tt_room" HorizontalAlignment="Left" Margin="153,95,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="10"/>
+                        <TextBlock x:Name="tk_tt_t" HorizontalAlignment="Left" Margin="153,76,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="10"/>
+                        <Label Content="Tổng dịch vụ:" HorizontalAlignment="Left" Margin="251,71,0,0" VerticalAlignment="Top" FontSize="10"/>
+                        <Label Content="Tổng số cơ sở vật chất:" HorizontalAlignment="Left" Margin="251,30,0,0" VerticalAlignment="Top" FontSize="10"/>
+                        <Label Content="Số Khoa:" HorizontalAlignment="Left" Margin="251,50,0,0" VerticalAlignment="Top" FontSize="10"/>
+                        <TextBlock x:Name="tk_tt_dv" HorizontalAlignment="Left" Margin="366,75,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="10"/>
+                        <lvc:PieChart x:Name="Chart4" InnerRadius="0" Series="{Binding SeriesCollection2}" 
+                            LegendLocation="Right"  Margin="387,121,10,10">
+                            <lvc:PieChart.ChartLegend>
+                                <lvc:DefaultLegend />
+                            </lvc:PieChart.ChartLegend>
+                            <lvc:PieChart.DataTooltip>
+                                <lvc:DefaultTooltip/>
+                            </lvc:PieChart.DataTooltip>
+                        </lvc:PieChart>
+                        <TextBlock x:Name="tk_tt_hd" HorizontalAlignment="Left" Margin="366,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="10"/>
+                        <TextBlock x:Name="tk_tt_csvc" HorizontalAlignment="Left" Margin="366,35,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="10"/>
+                        <TextBlock x:Name="tk_tt_k" HorizontalAlignment="Left" Margin="366,55,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="10"/>
+                        <Label Content="Số phòng đã được sử dụng:" HorizontalAlignment="Left" Margin="439,10,0,0" VerticalAlignment="Top" FontSize="10"/>
+                        <TextBlock x:Name="tk_room_dsd" HorizontalAlignment="Left" Margin="587,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="10"/>
+                        <Label Content="Số phòng chưa được sử dụng:" HorizontalAlignment="Left" Margin="439,30,0,0" VerticalAlignment="Top" FontSize="10"/>
+                        <Label Content="Số phòng đã đủ sinh viên:" HorizontalAlignment="Left" Margin="439,50,0,0" VerticalAlignment="Top" FontSize="10"/>
+                        <TextBlock x:Name="tk_room_csd" HorizontalAlignment="Left" Margin="587,35,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="10"/>
+                        <TextBlock x:Name="tk_room_full" HorizontalAlignment="Left" Margin="587,55,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="10"/>
+                        <Label Content="Số phòng có đồ hỏng:" HorizontalAlignment="Left" Margin="439,71,0,0" VerticalAlignment="Top" FontSize="10"/>
+                        <TextBlock x:Name="tk_room_sc" HorizontalAlignment="Left" Margin="587,76,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="10"/>
+                        <Label Content="Tình trạng phòng:" HorizontalAlignment="Left" Margin="439,107,0,0" VerticalAlignment="Top" FontSize="10"/>
+
+                    </Grid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Image HorizontalAlignment="Left" Height="32" Margin="157,10,0,0" VerticalAlignment="Top" Width="178" Source="D:\File\APP_DACS_QLKTX\APP_DACS_QLKTX\Images\logo.png"/>
+    </Grid>
+</Window>

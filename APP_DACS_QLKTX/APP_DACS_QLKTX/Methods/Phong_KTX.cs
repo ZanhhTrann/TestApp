@@ -1,0 +1,210 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using Microsoft.Win32;
+using OfficeOpenXml;
+using OfficeOpenXml.Style;
+using OfficeOpenXml.Table;
+namespace APP_DACS_QLKTX.Methods
+{
+    internal class Phong_KTX : Methods
+    {
+        private RadioButton r1;
+        private RadioButton r2;
+        private CheckBox c;
+        public Phong_KTX()
+        {
+
+        }
+        public Phong_KTX(SqlConnection conn, string sql0, TextBox search, RadioButton r1, RadioButton r2, CheckBox c)
+        {
+            this.conn = conn;
+            this.sql0 = sql0;
+            this.search = search;
+            this.r1 = r1;
+            this.r2 = r2;
+            this.c = c;
+        }
+
+        public DataTable Check_data()
+        {
+            DataTable dt = new DataTable();
+            String sql = sql0;
+            if (search.Text != "")
+            {
+                if (c.IsChecked == true)
+                {
+                    if (r1.IsChecked == true)
+                    {
+                        sql = sql + " where ( MaPhong='" + search.Text + "' or MaToa='" + search.Text + "') and SLSV=0 and (TinhTrang!='NULL' or TinhTrang!='')";
+                    }
+                    else if (r2.IsChecked == true)
+                    {
+                        sql = sql + " where ( MaPhong='" + search.Text + "' or MaToa='" + search.Text + "') and SLSV>0 and SLSV<8 and (TinhTrang!='NULL' or TinhTrang!='')";
+                    }
+                    else
+                    {
+                        sql = sql + " where ( MaPhong='" + search.Text + "' or MaToa='" + search.Text + "') and  TinhTrang!='NULL' or TinhTrang!=''";
+                    }
+                }
+                else
+                {
+                    if (r1.IsChecked == true)
+                    {
+                        sql = sql + " where ( MaPhong='" + search.Text + "' or MaToa='" + search.Text + "') and SLSV=0";
+                    }
+                    else if (r2.IsChecked == true)
+                    {
+                        sql = sql + " where ( MaPhong='" + search.Text + "' or MaToa='" + search.Text + "') and SLSV>0 and SLSV<8";
+                    }
+                    else
+                    {
+                        sql = sql + " where ( MaPhong='" + search.Text + "' or MaToa='" + search.Text + "')";
+                    }
+                }
+            }
+            else
+            {
+                if (c.IsChecked == true)
+                {
+                    if (r1.IsChecked == true)
+                    {
+                        sql = sql + " where SLSV=0 and (TinhTrang!='NULL' or TinhTrang!='')";
+                    }
+                    else if (r2.IsChecked == true)
+                    {
+                        sql = sql + " where SLSV>0 and SLSV<8 and (TinhTrang!='NULL' or TinhTrang!='')";
+                    }
+                    else
+                    {
+                        sql = sql + " where TinhTrang!='NULL' or TinhTrang!=''";
+                    }
+                }
+                else
+                {
+                    if (r1.IsChecked == true)
+                    {
+                        sql = sql + " where SLSV=0";
+                    }
+                    else if (r2.IsChecked == true)
+                    {
+                        sql = sql + " where SLSV>0 and SLSV<8";
+                    }
+                }
+            }
+            dt = Load_data(sql);
+            return dt;
+        }
+
+        //
+        public void Print_File(DataTable dt)
+        {
+            String filePath = "";
+            //tao savedialog de luu file
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "Excel| *.xlsx| Excel 2003| *.xls";
+
+            //nếu mở thành công thì lưu đường dẫn lại để dùng
+            if (dialog.ShowDialog() == true)
+            {
+                filePath = dialog.FileName;
+            }
+            // nếu không thì báo lỗi 
+            if (String.IsNullOrEmpty(filePath))
+            {
+                MessageBox.Show("Đường dẫn không hợp lệ!!");
+                return;
+            }
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            try
+            {
+                using (ExcelPackage p = new ExcelPackage())
+                {
+                    //đặt tên người tạo file 
+                    p.Workbook.Properties.Author = "Trần Công Danh,Nguyễn Văn Tân,Dương Văn Quang";
+                    //Đặt tiêu đề
+                    p.Workbook.Properties.Title = "Báo cáo thông kê";
+                    //tạo 1 sheet để làm việc
+                    p.Workbook.Worksheets.Add("Test Sheet");
+                    //Lấy sheet ra để làm việc
+                    ExcelWorksheet ws = p.Workbook.Worksheets[0];
+                    //Đặt tên cho sheet
+                    ws.Name = "Test Sheet";
+                    // Đặt formstyle 
+                    ws.Cells.Style.Font.Size = 14;
+                    // Đặt forn
+                    ws.Cells.Style.Font.Name = "Times New Roman";
+
+                    //Tạo danh sách các column 
+                    String[] arrColumn = { "MaPhong",
+                                            "MaToa",
+                                            "SLSV",
+                                            "TinhTrang"};
+
+                    //lấy ra số lượng cột cần dùng phụ thuộc vào arrColumn
+                    var CountArrColumn = arrColumn.Count();
+
+                    ws.Cells[1, 1].Value = "Danh Sách Phòng Ký Túc Xá";
+                    ws.Cells[1, 1, 1, CountArrColumn].Merge = true;
+                    //in đậm
+                    ws.Cells[1, 1, 1, CountArrColumn].Style.Font.Bold = true;
+                    // Căn Giũa
+                    ws.Cells[1, 1, 1, CountArrColumn].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                    int colIndex = 1;
+                    int rowIndex = 2;
+                    //Tạo các header từ column đã tạo
+                    foreach (var item in arrColumn)
+                    {
+                        var cells = ws.Cells[rowIndex, colIndex];
+                        var Border = cells.Style.Border;
+                        Border.Bottom.Style =
+                            Border.Top.Style =
+                                Border.Left.Style =
+                                    Border.Right.Style = ExcelBorderStyle.Thin;
+
+                        //Gán giá trị
+                        cells.Value = item;
+                        colIndex++;
+
+                    }
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        //bắt đầu từ cột 1
+                        colIndex = 1;
+                        //rowIndex tương ứng từng dòng dữ liệu
+                        rowIndex++;
+                        ws.Cells[rowIndex, colIndex++].Value = row["MaPhong"].ToString();
+                        ws.Cells[rowIndex, colIndex++].Value = row["HoToa"].ToString();
+                        ws.Cells[rowIndex, colIndex++].Value = row["SLSV"].ToString();
+                        ws.Cells[rowIndex, colIndex++].Value = row["TinhTrang"].ToString();
+                    }
+                    // Lưu file lại
+                    byte[] bin = p.GetAsByteArray();
+                    File.WriteAllBytes(filePath, bin);
+
+                }
+                MessageBox.Show("Lưu thành công!");
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi khi lưu!!");
+                return;
+            }
+        }
+
+
+    }
+}

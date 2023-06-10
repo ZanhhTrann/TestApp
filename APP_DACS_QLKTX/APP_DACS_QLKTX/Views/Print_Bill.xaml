@@ -1,0 +1,88 @@
+﻿<Window x:Class="APP_DACS_QLKTX.Views.Print_Bill"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:APP_DACS_QLKTX.Views"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Hóa đơn" Height="600" Width="535.5" ResizeMode="NoResize" 
+        WindowStyle="None" FontFamily="Roboto" WindowStartupLocation="CenterScreen">
+    <Border>
+        <StackPanel Height="600">
+
+            <ScrollViewer x:Name="print">
+
+                <Grid>
+                    <Image Source="D:\File\APP_DACS_QLKTX\APP_DACS_QLKTX\Images\logo.png" Margin="10,7,366,564"/>
+                    <Button x:Name="ex" Margin="473,0,0,575" Content="Thoát" Background="{x:Null}" Foreground="#FFF98686" Click="ex_Click" BorderBrush="#FFD2D2D2"/>
+                    <TextBlock Text="Hóa Đơn" Margin="160,54,160,490" FontSize="48" FontWeight="Bold"/>
+                    <Button x:Name="btnInHoaDon" 
+                            ToolTip="In hóa đơn" Click="click_InHoaDon" HorizontalAlignment="Right" Width="23" Margin="0,32,0,549" >
+                        <Image Source="D:\File\APP_DACS_QLKTX\APP_DACS_QLKTX\Icons\print.png"></Image>
+                    </Button>
+                    <Grid Margin="0,101,0,10" Background="White">
+                        <Label Content="Mã hóa đơn : " HorizontalAlignment="Left" Margin="58,66,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Ngày hóa đơn :" HorizontalAlignment="Left" Margin="58,37,0,0" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="nhd" HorizontalAlignment="Left" Margin="154,42,0,0" TextWrapping="Wrap" Text="dd/MMM/yyyy" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="mhd" HorizontalAlignment="Left" Margin="154,71,0,0" TextWrapping="Wrap" Text="HD00000" VerticalAlignment="Top"/>
+                        <Label Content="Mã phòng :" HorizontalAlignment="Left" Margin="301,37,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Số lượng sinh viên :" HorizontalAlignment="Left" Margin="301,66,0,0" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="mp" HorizontalAlignment="Left" Margin="377,42,0,0" TextWrapping="Wrap" Text="dd/MMM/yyyy" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="slsv0" HorizontalAlignment="Left" Margin="419,71,0,0" TextWrapping="Wrap" Text="HD00000" VerticalAlignment="Top"/>
+                        <Rectangle Fill="Black" Opacity="0.5" Margin="24,95,25,397"/>
+                        <Rectangle Fill="Black" Opacity="0.5" Margin="24,107,25,385"/>
+                        <Label Content="Tên dịch vụ" HorizontalAlignment="Left" Margin="24,113,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Số lượng" HorizontalAlignment="Left" Margin="134,113,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Đơn giá" HorizontalAlignment="Left" Margin="241,113,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Thanh toán" HorizontalAlignment="Left" Margin="404,113,0,0" VerticalAlignment="Top"/>
+                        <Rectangle Fill="Black" Opacity="0.2" Margin="282,209,94,282" RenderTransformOrigin="0.5,0.5">
+                            <Rectangle.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="90.161"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                        <Rectangle Fill="Black" Opacity="0.5" Margin="24,137,25,355"/>
+                        <Label Content="Tiền phòng" HorizontalAlignment="Left" Margin="24,155,0,0" VerticalAlignment="Top" FontSize="10"/>
+                        <Label Content="Tiền điện" HorizontalAlignment="Left" Margin="24,182,0,0" VerticalAlignment="Top" FontSize="10"/>
+                        <Label Content="Tiền nước" HorizontalAlignment="Left" Margin="24,209,0,0" VerticalAlignment="Top" FontSize="10"/>
+                        <Label Content="Tiền mạng" HorizontalAlignment="Left" Margin="24,0,0,0" VerticalAlignment="Center" FontSize="10"/>
+                        <Label Content="Tiền vệ sinh" HorizontalAlignment="Left" Margin="24,262,0,0" VerticalAlignment="Top" FontSize="10"/>
+                        <TextBlock x:Name="slsv1" HorizontalAlignment="Left" Margin="142,161,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="9"/>
+                        <TextBlock x:Name="kwh" HorizontalAlignment="Left" Margin="142,188,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="9"/>
+                        <TextBlock x:Name="khoi" HorizontalAlignment="Left" Margin="142,215,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="9"/>
+                        <TextBlock x:Name="slsv2" HorizontalAlignment="Left" Margin="142,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" FontSize="9"/>
+                        <TextBlock x:Name="slsv3" HorizontalAlignment="Left" Margin="142,268,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="9"/>
+                        <TextBlock x:Name="tp" HorizontalAlignment="Left" Margin="248,161,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="9"/>
+                        <TextBlock x:Name="td" HorizontalAlignment="Left" Margin="248,188,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="9"/>
+                        <TextBlock x:Name="tn" HorizontalAlignment="Left" Margin="248,215,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="9"/>
+                        <TextBlock x:Name="tm" HorizontalAlignment="Left" Margin="248,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" FontSize="9"/>
+                        <TextBlock x:Name="tvs" HorizontalAlignment="Left" Margin="248,268,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="9"/>
+                        <TextBlock x:Name="ttp" HorizontalAlignment="Left" Margin="421,158,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="9"/>
+                        <TextBlock x:Name="ttd" HorizontalAlignment="Left" Margin="421,188,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="9"/>
+                        <TextBlock x:Name="ttn" HorizontalAlignment="Left" Margin="421,215,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="9"/>
+                        <TextBlock x:Name="ttm" HorizontalAlignment="Left" Margin="421,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" FontSize="9"/>
+                        <TextBlock x:Name="ttvs" HorizontalAlignment="Left" Margin="421,268,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="9"/>
+                        <Rectangle Fill="Black" Opacity="0.5" Margin="24,285,25,207"/>
+                        <Rectangle Fill="Black" Opacity="0.5" Margin="24,296,25,196"/>
+                        <Rectangle Fill="Black" Opacity="0.5" Margin="24,354,25,138"/>
+                        <Label Content="Tổng tiền : " HorizontalAlignment="Left" Margin="24,308,0,0" VerticalAlignment="Top" FontSize="20"/>
+                        <TextBlock x:Name="tt" HorizontalAlignment="Left" Margin="376,314,0,0" TextWrapping="Wrap" Text="3.000.000 VND" VerticalAlignment="Top" FontSize="18" Foreground="#FFF14F4F"/>
+                        <Label Content="Tình trạng " HorizontalAlignment="Left" Margin="45,360,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Nhân Viên" HorizontalAlignment="Left" Margin="390,358,0,0" VerticalAlignment="Top" FontSize="16"/>
+                        <TextBlock x:Name="fullname" Text="Họ và Tên" HorizontalAlignment="Left" Margin="369,384,0,0" VerticalAlignment="Top" Width="131" FontSize="14" TextAlignment="Center"/>
+                        <TextBlock x:Name="name" Text="Tên" HorizontalAlignment="Left" Margin="409,406,0,0" VerticalAlignment="Top" Width="51" FontFamily="Vladimir Script" TextAlignment="Center"/>
+
+                    </Grid>
+                </Grid>
+
+            </ScrollViewer>
+        </StackPanel>
+    </Border>
+
+
+</Window>
